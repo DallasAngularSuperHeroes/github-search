@@ -4,17 +4,29 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing.module';
+
+import { UserProfileModule } from './user-profile/user-profile.module';
+import { GithubsearchService } from './githubsearch.service';
+import {ReposModule} from "./repos/repos.module";
+import {FollowingModule} from "./following/following.module";
+import {FollowersModule} from "./followers/followers.module";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    UserProfileModule,
+    ReposModule,
+    FollowingModule,
+    FollowersModule,
   ],
-  providers: [],
+  providers: [GithubsearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

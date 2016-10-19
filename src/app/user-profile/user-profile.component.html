@@ -1,0 +1,41 @@
+<div class="container userProfile">
+
+  <div class="row">
+    <div class="col-md-3"></div>
+      <div class="col-md-9">
+      <nav class="profileSubmenu">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <h3>
+              <a [routerLink]="['repos']" routerLinkActive="active">Repos</a>
+              <a [routerLink]="['following']" routerLinkActive="active">Following</a>
+              <a [routerLink]="['followers']" routerLinkActive="active">Followers</a>
+            </h3>
+          </div>
+          </div>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col-md-3">
+      <img [src]="userProfile.avatar_url" class="img-responsive" alt="Responsive image">
+      <h3>{{ userProfile.name }}</h3>
+      <h5>{{ userProfile.login }}</h5>
+
+      <ul class="list-group">
+        <li class="list-group-item">{{ userProfile.company }}</li>
+        <li class="list-group-item">{{ userProfile.location }}</li>
+        <li class="list-group-item">{{ userProfile.email }}</li>
+        <li class="list-group-item">{{ userProfile.blog }}</li>
+        <li class="list-group-item">{{ userProfile.created_at }}</li>
+      </ul>
+    </div>
+
+    <div class="col-md-9">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+</div>
