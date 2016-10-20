@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import { GithubsearchService } from '../githubsearch.service';
+import { GithubsearchService } from '../shared/githubsearch.service';
 
 @Component({
   selector: 'github-welcome',
@@ -9,7 +9,7 @@ import { GithubsearchService } from '../githubsearch.service';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-  welcome = {};
+  userid: string;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -20,6 +20,9 @@ export class WelcomeComponent implements OnInit {
     //   let userid = params['userid'];
     //   this.welcome = this.githubsearchService.getWelcome(userid)
     // });
-  }    
+  }
 
+  onUserid() {
+    this.router.navigate(['/user', this.userid]);
+  }
 }

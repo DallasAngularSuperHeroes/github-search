@@ -16,10 +16,10 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li>
-          <a href="#">About</a>
+          <a routerLink="/" >Search</a>
         </li>
         <li>
-          <a href="#">Contact</a>
+          <a routerLink="/about" >About</a>
         </li>
       </ul>
     </div>
@@ -30,23 +30,19 @@
 
 <!-- Page Content -->
 <div>
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
 <!-- /.container -->
 
-<div class="container">
-
-  <hr>
-
-  <!-- Footer -->
-  <footer>
+<!-- Footer -->
+<footer>
+  <div class="container">
     <div class="row">
-      <div class="col-lg-12">
-        <p>Copyright &copy;</p>
-        <p>Dallas Angular Super Heroes</p>
+      <div class="col-md-12">
+        <div>Dallas Angular Super Heroes</div>
+        <div>October 2016 at MoneyGram</div>
       </div>
     </div>
-  </footer>
-
-</div>
+  </div>
+</footer>
 <!-- /.container -->

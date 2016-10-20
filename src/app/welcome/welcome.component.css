@@ -1,0 +1,13 @@
+
+.middleTitle {
+  font-size: 24px;
+  margin-top: 20px;
+  margin-bottmn: 20px;
+  margin-left: -10px;
+}
+
+label {
+  right: 2px;
+  position: absolute;
+}
+

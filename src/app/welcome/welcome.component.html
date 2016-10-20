@@ -1,1 +1,21 @@
-<h1>Welcome</h1>
+<div class="container welcome">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Github People Search</h1>
+      <p>Simple angular 2 demo from the Dallas Angular Super Heroes meetup</p>
+    </div>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-10">
+        <div class="middleTitle">Who do you know on github ?</div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <label>userid</label>
+        </div>
+        <div class="col-md-10">
+          <input [(ngModel)]="userid" placeholder="userid" (blur)="onUserid()"/>
+        </div>
+      </div>
+    </div>
+  </div>
