@@ -1,10 +1,10 @@
 import {NgModule}     from '@angular/core';
-import {RouterModule} from '@angular/router';
-
+import {RouterModule, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 import {UserProfileComponent}    from './user-profile.component';
 import {ReposComponent} from "../repos/repos.component";
 import {FollowersComponent} from "../followers/followers.component";
 import {FollowingComponent} from "../following/following.component";
+import {UserPofileResolve} from "./user-profile.resolve";
 
 @NgModule({
   imports: [
@@ -14,6 +14,9 @@ import {FollowingComponent} from "../following/following.component";
       {
         path: 'user/:userid',
         component: UserProfileComponent,
+        resolve: {
+          userProfile: UserPofileResolve
+        },
         children: [
           {
             path: '',
@@ -52,7 +55,9 @@ import {FollowingComponent} from "../following/following.component";
       // },
     ])
   ],
-
+  providers: [
+    UserPofileResolve
+  ],
   exports: [
     RouterModule
   ]
