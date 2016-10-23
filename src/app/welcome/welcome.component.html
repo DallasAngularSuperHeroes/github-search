@@ -16,7 +16,7 @@
       <label>userid</label>
     </div>
     <div class="col-xs-10">
-      <input [(ngModel)]="userid" placeholder="userid" (blur)="onUserid()"/>
+      <input [(ngModel)]="userid" placeholder="userid" (blur)="onUserid()" (mouseout)="onUserid()" (keyup)="onKeyup(event)" />
     </div>
   </div>
 </div>

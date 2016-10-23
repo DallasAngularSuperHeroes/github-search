@@ -1,6 +1,6 @@
 <h1>Repos</h1>
 <ul>
     <li *ngFor="let repo of repos | async">
-       {{repo.name}}
+       <a href="{{repo.html_url}}">{{repo.name}}</a>
     </li>
 </ul>

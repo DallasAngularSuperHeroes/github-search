@@ -1,6 +1,6 @@
 <h1>Followers</h1>
 <ul>
     <li *ngFor="let fellow of followers | async">
-       {{fellow.login}}
+      <a routerLink="/user/{{fellow.login}}/followers">{{fellow.login}}</a>
     </li>
 </ul>

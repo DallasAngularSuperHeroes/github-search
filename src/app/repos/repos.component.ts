@@ -20,6 +20,6 @@ export class ReposComponent implements OnInit {
       let userid = params['userid'];
       this.repos = this.githubsearchService.getRepos(userid)
     });
-  }    
+  }
 
 }

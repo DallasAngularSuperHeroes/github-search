@@ -15,7 +15,6 @@ export class UserPofileResolve implements Resolve<UserProfile> {
       if (userProfile) {
         return userProfile;
       } else { // id not found
-        this.router.navigate(['/']);
         return false;
       }
     });

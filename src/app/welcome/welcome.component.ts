@@ -25,4 +25,10 @@ export class WelcomeComponent implements OnInit {
   onUserid() {
     this.router.navigate(['/user', this.userid]);
   }
+
+  onKeyup(event) {
+    if (event && event.code === 'Enter')  {
+      this.onUserid();
+    }
+  }
 }
