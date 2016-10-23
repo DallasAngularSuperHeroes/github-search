@@ -7,8 +7,6 @@ import { Jsonp, URLSearchParams } from '@angular/http';
 export class GithubsearchService {
   
   private clientId = "5fd529216b8a0dc7d6b0";
-  //private clientSecret = "55870b4d7c343a69e6185a426d5d2dc274d39d86";
-  private clientSecret = "1d0dbf7aa1dcfe302a378bdd4240a93bc53d4207";
   private githubProfileUrl: string = 'https://api.github.com/users';
   private githubRepos: string = '/repos';
   private githubFollowers: string = '/followers';

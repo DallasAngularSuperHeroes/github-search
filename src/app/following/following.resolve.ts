@@ -5,16 +5,16 @@ import { GithubsearchService } from '../shared/githubsearch.service';
 import {UserProfile} from "../shared/userProfile";
 
 @Injectable()
-export class UserPofileResolve implements Resolve<UserProfile> {
+export class FollowingResolve implements Resolve<UserProfile[]> {
   constructor(private githubsearchService: GithubsearchService, private router: Router) {}
 
-  resolve(route: ActivatedRouteSnapshot): Promise<UserProfile>|boolean {
+  resolve(route: ActivatedRouteSnapshot): Promise<UserProfile[]>|boolean {
     const id:string = route.params['userid'];
 
-    return this.githubsearchService.getUserProfile(id).then(userProfile => {
-      if (userProfile) {
-        return userProfile;
-      } else { // id not found
+    return this.githubsearchService.getFollowing(id).then(userProfiles => {
+      if (userProfiles) {
+        return userProfiles;
+      } else {
         this.router.navigate(['/']);
         return false;
       }

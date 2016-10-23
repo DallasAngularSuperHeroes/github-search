@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 
 import {GithubsearchService} from '../shared/githubsearch.service';
-import {UserProfile} from "./userProfile";
+import {UserProfile} from "../shared/userProfile";
 
 @Component({
   selector: 'github-user-profile',

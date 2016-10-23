@@ -36,23 +36,6 @@ import {UserPofileResolve} from "./user-profile.resolve";
           },
         ]
       }
-
-      // {
-      //   path: '',
-      //   component: ReposComponent
-      // },
-      // {
-      //   path: 'repos',
-      //   component: ReposComponent
-      // },
-      // {
-      //   path: 'following',
-      //   component: FollowingComponent
-      // },
-      // {
-      //   path: 'followers',
-      //   component: FollowersComponent
-      // },
     ])
   ],
   providers: [
