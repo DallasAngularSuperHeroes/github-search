@@ -23,7 +23,9 @@ export class WelcomeComponent implements OnInit {
   }
 
   onUserid() {
-    this.router.navigate(['/user', this.userid]);
+    if (this.userid) {
+      this.router.navigate(['/user', this.userid]);
+    }
   }
 
   onKeyup(event) {
@@ -31,4 +33,9 @@ export class WelcomeComponent implements OnInit {
       this.onUserid();
     }
   }
+
+  hasData() {
+    return !!this.userid;
+  }
+
 }

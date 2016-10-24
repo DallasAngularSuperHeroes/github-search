@@ -41,7 +41,11 @@ export class GithubsearchService {
       .toPromise()
       .then((response: Response) => {
         var profile = response.json();
-        console.log(profile);
+        console.log('profile.login ' + profile.login);
+        if (!profile.login) {
+          return false;
+        }
+        console.log('profile ' + profile);
 
         GithubsearchService.cache[userid] = {userProfile: {}};
         ['avatar_url', 'name', 'login', 'company', 'userid', 'location', 'email', 'blog', 'created_at'].forEach(field =>
@@ -49,7 +53,6 @@ export class GithubsearchService {
         );
         return profile;
       })
-      .catch(this.handleError);
   }
 
   getRepos(userid: string) {
@@ -70,7 +73,6 @@ export class GithubsearchService {
         });
         return repos
       })
-      .catch(this.handleError);
   }
 
   getFollowers(userid: string) {
@@ -79,10 +81,9 @@ export class GithubsearchService {
       .toPromise()
       .then((response: Response) => {
         const followers = response.json();
-        GithubsearchService.cache[userid].followers = followers.map( user => { return {user: user.name}} );
+        GithubsearchService.cache[userid].followers = followers.map( user => { return {login: user.login}} );
         return followers;
       })
-      .catch(this.handleError);
   }
 
   getFollowing(userid: string) {
@@ -91,15 +92,9 @@ export class GithubsearchService {
       .toPromise()
       .then((response: Response) => {
         const following = response.json();
-        GithubsearchService.cache[userid].followers = following.map( user => { return {user: user.name}} );
+        GithubsearchService.cache[userid].followers = following.map( user => { return {login: user.login}} );
         return following;
       })
-      .catch(this.handleError);
-  }
-
-  private handleError(error: any) {
-    console.error('An error occurred', error); // for demo purposes only
-    return Promise.reject(error.message || error);
   }
 
   public showCache() {

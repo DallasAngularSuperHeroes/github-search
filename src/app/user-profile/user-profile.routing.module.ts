@@ -4,7 +4,7 @@ import {UserProfileComponent}    from './user-profile.component';
 import {ReposComponent} from "../repos/repos.component";
 import {FollowersComponent} from "../followers/followers.component";
 import {FollowingComponent} from "../following/following.component";
-import {UserPofileResolve} from "./user-profile.resolve";
+import {UserProfileResolve} from "./user-profile.resolve";
 
 @NgModule({
   imports: [
@@ -15,8 +15,9 @@ import {UserPofileResolve} from "./user-profile.resolve";
         path: 'user/:userid',
         component: UserProfileComponent,
         resolve: {
-          userProfile: UserPofileResolve
+          userProfile: UserProfileResolve,
         },
+        canActivate: [UserProfileResolve],
         children: [
           {
             path: '',
@@ -39,7 +40,7 @@ import {UserPofileResolve} from "./user-profile.resolve";
     ])
   ],
   providers: [
-    UserPofileResolve
+    UserProfileResolve
   ],
   exports: [
     RouterModule
