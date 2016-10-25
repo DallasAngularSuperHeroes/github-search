@@ -7,7 +7,6 @@ import {Jsonp, URLSearchParams} from '@angular/http';
 @Injectable()
 export class GithubsearchService {
 
-  private clientId = "5fd529216b8a0dc7d6b0";
   private githubProfileUrl: string = 'https://api.github.com/users';
   private githubRepos: string = '/repos';
   private githubFollowers: string = '/followers';

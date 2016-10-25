@@ -21,7 +21,7 @@
 
     <div class="col-md-3">
       <img [src]="userProfile.avatar_url" class="img-responsive" alt="Responsive image">
-      <h3>{{ userProfile.name }}</h3>
+      <h3><input [(ngModel)]=  "userProfile.name"/></h3>
       <h5>{{ userProfile.login }}</h5>
 
       <ul class="list-group">

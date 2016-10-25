@@ -1,7 +1,7 @@
 import {NgModule}     from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {AppComponent} from "./app.component";
 import {WelcomeComponent} from "../welcome/welcome.component";
+import {AboutGuard} from "./about.guards";
 
 @NgModule({
   imports: [
@@ -12,9 +12,13 @@ import {WelcomeComponent} from "../welcome/welcome.component";
           {
             path:'',
             component: WelcomeComponent,
-          }
+          },
+          { path: 'about',
+            loadChildren: '../about/about.module#AboutModule',
+          },
         ]
       },
+
       // {
       // path: 'user/:userid',
       // component: UserProfileComponent,
@@ -38,6 +42,9 @@ import {WelcomeComponent} from "../welcome/welcome.component";
       // ]
       // }
     ])
+  ],
+  providers:[
+    AboutGuard,
   ],
   exports: [
     RouterModule

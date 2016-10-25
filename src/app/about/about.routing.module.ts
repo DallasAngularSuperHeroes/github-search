@@ -1,14 +1,21 @@
 import { NgModule }     from '@angular/core';
-import { RouterModule } from '@angular/router';
+import {RouterModule, Route} from '@angular/router';
 
 import { AboutComponent }    from './about.component';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
-      { path: 'about',
-        component: AboutComponent },
+      { path: '',
+        component: AboutComponent,
+      },
     ])
+  ],
+  providers: [
+    // {
+    //   provide: 'canLoadGuard',
+    //   useValue: (route: Route): boolean => { return false; }
+    // }
   ],
   exports: [
     RouterModule

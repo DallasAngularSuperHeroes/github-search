@@ -5,6 +5,7 @@ import {ReposComponent} from "../repos/repos.component";
 import {FollowersComponent} from "../followers/followers.component";
 import {FollowingComponent} from "../following/following.component";
 import {UserProfileResolve} from "./user-profile.resolve";
+import {UserProfile} from "../shared/userProfile";
 
 @NgModule({
   imports: [
@@ -17,11 +18,13 @@ import {UserProfileResolve} from "./user-profile.resolve";
         resolve: {
           userProfile: UserProfileResolve,
         },
-        canActivate: [UserProfileResolve],
+        // canActivate: [UserProfileResolve],
+        canActivate: ['noAname'],
         children: [
           {
             path: '',
-            component: ReposComponent
+            redirectTo: 'repos',
+            pathMatch: 'full'
           },
           {
             path: 'repos',
@@ -40,7 +43,13 @@ import {UserProfileResolve} from "./user-profile.resolve";
     ])
   ],
   providers: [
-    UserProfileResolve
+    UserProfileResolve,
+    {
+      provide: 'noAname',
+      useValue: (route:ActivatedRouteSnapshot):Promise<UserProfile>|boolean => {
+        return !route.params['userid'].startsWith('a');
+      }
+    },
   ],
   exports: [
     RouterModule

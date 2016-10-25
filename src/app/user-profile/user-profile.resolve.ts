@@ -1,5 +1,8 @@
 import { Injectable }             from '@angular/core';
-import {Router, Resolve, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
+import {
+  Router, Resolve, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Route,
+  CanLoad, CanDeactivate
+} from '@angular/router';
 
 import { GithubsearchService } from '../shared/githubsearch.service';
 import {UserProfile} from "../shared/userProfile";
@@ -7,7 +10,7 @@ import {Observable} from "rxjs/Rx";
 import {UserProfileComponent} from "./user-profile.component";
 
 @Injectable()
-export class UserProfileResolve implements Resolve<UserProfile>, CanActivate {
+export class UserProfileResolve implements Resolve<UserProfile>, CanActivate, CanDeactivate<UserProfileComponent>, CanLoad {
   constructor(private githubsearchService: GithubsearchService, private router: Router) {}
 
   resolve(route: ActivatedRouteSnapshot): Promise<UserProfile>|boolean {
@@ -28,7 +31,14 @@ export class UserProfileResolve implements Resolve<UserProfile>, CanActivate {
     return !route.params['userid'].startsWith('a');
   }
 
-  // canDeactivate(component: WelcomeComponent, route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : Observable<boolean>|Promise<boolean>|boolean {
-  //   return !component.userid;
-  // }
+  canDeactivate(component: UserProfileComponent, route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : Observable<boolean>|Promise<boolean>|boolean {
+    return !component.userProfile.name;
+  }
+
+  canLoad(route: Route): boolean {
+    let url = `/${route.path}`;
+
+    return false;
+  }
+
 }

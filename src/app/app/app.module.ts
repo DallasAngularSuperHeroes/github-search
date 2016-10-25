@@ -12,7 +12,6 @@ import {ReposModule} from "../repos/repos.module";
 import {FollowingModule} from "../following/following.module";
 import {FollowersModule} from "../followers/followers.module";
 import {WelcomeModule} from "../welcome/welcome.module";
-import {AboutModule} from '../about/about.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +27,6 @@ import {AboutModule} from '../about/about.module';
     FollowingModule,
     FollowersModule,
     WelcomeModule,
-    AboutModule,
   ],
   providers: [GithubsearchService],
   bootstrap: [AppComponent]
