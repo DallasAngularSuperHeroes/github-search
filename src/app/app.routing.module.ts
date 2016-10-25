@@ -1,6 +1,6 @@
 import {NgModule}     from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {WelcomeComponent} from "../welcome/welcome.component";
+import {WelcomeComponent} from "./welcome/welcome.component";
 import {AboutGuard} from "./about.guards";
 
 @NgModule({
@@ -13,12 +13,11 @@ import {AboutGuard} from "./about.guards";
             path:'',
             component: WelcomeComponent,
           },
-          { path: 'about',
-            loadChildren: '../about/about.module#AboutModule',
-          },
         ]
       },
-
+      { path: 'about',
+        loadChildren: './about/about.module#AboutModule',
+      },
       // {
       // path: 'user/:userid',
       // component: UserProfileComponent,

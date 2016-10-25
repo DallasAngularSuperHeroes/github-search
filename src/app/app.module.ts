@@ -6,12 +6,12 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
 
-import { UserProfileModule } from '../user-profile/user-profile.module';
-import { GithubsearchService } from '../shared/githubsearch.service';
-import {ReposModule} from "../repos/repos.module";
-import {FollowingModule} from "../following/following.module";
-import {FollowersModule} from "../followers/followers.module";
-import {WelcomeModule} from "../welcome/welcome.module";
+import { UserProfileModule } from './user-profile/user-profile.module';
+import { GithubsearchService } from './shared/githubsearch.service';
+import {ReposModule} from "./repos/repos.module";
+import {FollowingModule} from "./following/following.module";
+import {FollowersModule} from "./followers/followers.module";
+import {WelcomeModule} from "./welcome/welcome.module";
 
 @NgModule({
   declarations: [

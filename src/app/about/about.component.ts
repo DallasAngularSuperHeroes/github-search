@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { GithubsearchService } from '../shared/githubsearch.service'
+// import { GithubsearchService } from '../shared/githubsearch.service'
 
 @Component({
   templateUrl: './about.component.html',
@@ -7,7 +7,7 @@ import { GithubsearchService } from '../shared/githubsearch.service'
 })
 export class AboutComponent  {
 
-  constructor(githubService: GithubsearchService) {
-    githubService.showCache();
-  }
+  // constructor(githubService: GithubsearchService) {
+  //   githubService.showCache();
+  // }
 }
